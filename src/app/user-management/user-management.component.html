@@ -1,0 +1,72 @@
+<p>user-management works!</p>
+
+<div class="card1">
+    <p-table [value]="users" responsiveLayout="scroll">
+        <ng-template pTemplate="caption">
+            Normale Table
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.address}}</td>
+                <td>{{user.type}}</td>
+                <td>
+                    <td>
+                        <div class="col-md-3">
+                            <button type="button" (click)="showDialog(user)" icon="pi pi-info-circle" label="Show"></button>
+                        
+                            <a class="btn btn-danger" (click)="deleteUser()">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+               
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<!-- <div class="card">
+    
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+            
+        </ng-template>
+       
+        </div> -->
+
+        <p-dialog header="Title" [(visible)]="display">
+           Name <input type="text" pInputText />
+           Address <input type="text" pInputText />
+           Emails <input type="text" pInputText />
+
+           <div>
+            <p-radioButton name="groupname" value="Male" [(ngModel)]="selectedValue" inputId="sv2">Male</p-radioButton>
+            <label for = "sv2">Male</label>
+          </div>
+          
+          <div>
+            <p-radioButton name="groupname" value="Female" [(ngModel)]="selectedValue" inputId="sv3">Female</p-radioButton>
+            <label for = "sv3">Female</label>
+          </div>
+      
+          
+          <br>
+      
+          <button type="button" pButton label="Submit" class="submit" (click)="submit()"></button>
+            
+        </p-dialog>
+        
+        

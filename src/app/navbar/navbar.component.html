@@ -1,0 +1,100 @@
+
+
+<!-- <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+    <p-panelMenu [model]="items" [style]="{'width':'300px'}"></p-panelMenu>
+</p-sidebar>
+<p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button> -->
+
+<!-- <div class="sideMenu">
+    <li class="list">
+    <div class="dropdown">
+     <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    </li>
+    <li>
+    <div class="dropdown">
+      <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+</li> -->
+    <!-- <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-listbox> -->
+<!-- </div> -->
+
+<div class="wrapper">
+    <!--Top menu -->
+    <div class="sidebar">
+        <div class="profile">
+            <h3>Inventory Management</h3>
+            
+            <ul>
+                <li>
+                    <a class="button"
+                    routerLink="/login"
+                    routerLinkActive="activebutton"
+                    ariaCurrentWhenActive="page" class="active">
+                        <span class="item">Login</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button"
+                    routerLink="/create-user"
+                    routerLinkActive="activebutton"
+                    ariaCurrentWhenActive="page">
+                        <span class="item">Create User</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button"
+                    routerLink="/user-management"
+                    routerLinkActive="activebutton"
+                    ariaCurrentWhenActive="page">
+                        <span class="item">User Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button"
+                    routerLink="/edit-user"
+                    routerLinkActive="activebutton"
+                    ariaCurrentWhenActive="page">
+                        <span class="item">Edit/delete User</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button"
+                    routerLink="/create-item"
+                    routerLinkActive="activebutton"
+                    ariaCurrentWhenActive="page">
+                        <span class="item">Create Items</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button"
+                    routerLink="/item-management"
+                    routerLinkActive="activebutton"
+                    ariaCurrentWhenActive="page">
+                        <span class="item">Item Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="button"
+                    routerLink="/check-item"
+                    routerLinkActive="activebutton"
+                    ariaCurrentWhenActive="page">
+                        <span class="item">Check Item In/out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+
+</div>

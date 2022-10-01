@@ -1,0 +1,41 @@
+<div class="col-sm-5 p-3 " class="firstSplit">
+  <form>
+    <div class="mb-3 mt-3">
+      <label for="text" class="form-label h6">Product Name:</label>
+      <input type="text" class="form-control" name="pname" id="product"  name="product" [(ngModel)] = "pname">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="text" class="form-label h6">Delivered By:</label>
+      <input type="text" class="form-control" name="pname" id="product"  name="name" [(ngModel)] = "name">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="text" class="form-label h6">Address:</label>
+      <input type="text" class="form-control" name="pname" id="product"  name="address" [(ngModel)] = "address">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="number" class="form-label h6">Product Quantiy:</label>
+      <input type="number" class="form-control" name="pprice" id="price" name="Qty" [(ngModel)] = "quantity" >
+    </div>
+    <span>
+      <label class="h6">Product Category</label><br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Fooditem" id="inlineRadio1" value="FoodItem" [(ngModel)] = "value" >
+        <label class="form-check-label" for="inlineRadio1">Food Item</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Hardware" id="inlineRadio2" value="Hardware" [(ngModel)] = "value" >
+        <label class="form-check-label" for="inlineRadio2">Hardware</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Pharmaceuticals" id="inlineRadio3" value="Pharmaceuticals"[(ngModel)] = "value" >
+        <label class="form-check-label" for="inlineRadio3">Pharmaceuticals</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="Cosmetics" id="inlineRadio3" value="Cosmetics" [(ngModel)] = "value">
+        <label class="form-check-label" for="inlineRadio3">Cosmetics</label>
+      </div>
+    </span>
+  </form>
+  <br><br>
+  <button class="btn btn-primary"  (click)="submitInventory()" type='button'>Submit</button>
+</div>

@@ -1,0 +1,30 @@
+<p>item-management works!</p>
+
+<div class="card">
+    <p-table [value]="inventorys" responsiveLayout="scroll">
+        <ng-template pTemplate="caption">
+            Normale Table
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                
+                <th>Name(Delivered By)</th>
+                <th>Address</th>
+                <th>ProductName</th>
+                <th>Category</th>
+                <th>Quantity</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-inventory>
+            <tr>
+                
+                <td>{{inventory.name}}</td>
+                <td>{{inventory.address}}</td>
+                <td>{{inventory.pname}}</td>
+                <td>{{inventory.value}}</td>
+                <td>{{inventory.quantity}}</td>
+                
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
