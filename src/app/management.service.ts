@@ -5,6 +5,7 @@ import axios from 'axios'
   providedIn: 'root'
 })
 export class ManagementService {
+  user: any;
 
   constructor() { }
 
@@ -14,26 +15,26 @@ export class ManagementService {
   inventorys: Array<any> = [];
   userToEdit : any = {};
 
-  // getUsers =  async  () => {
-  //   try {
-  //     const response = await axios.get('https://crudcrud.com/api/a35ede3ffed34c3e92f2223175911a67/users');
-  //     console.log(response);
-  //     this.users = response.data;
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  getUsers =  async  () => {
+    try {
+      const response = await axios.get('https://crudcrud.com/api/311fa0f0256144cfbd3af691869b9e50/users');
+      console.log(response);
+      this.users = response.data;
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
 
-  // getInventorys =  async  () => {
-  //   try {
-  //     const response = await axios.get('https://crudcrud.com/api/a35ede3ffed34c3e92f2223175911a67/inventorys');
-  //     console.log(response);
-  //     this.users = response.data;
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+  getInventorys =  async  () => {
+    try {
+      const response = await axios.get('https://crudcrud.com/api/311fa0f0256144cfbd3af691869b9e50/inventorys');
+      console.log(response);
+      this.users = response.data;
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }

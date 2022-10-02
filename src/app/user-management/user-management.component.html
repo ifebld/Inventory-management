@@ -25,7 +25,7 @@
                 <td>
                     <td>
                         <div class="col-md-3">
-                            <button type="button" (click)="showDialog(user)" icon="pi pi-info-circle" label="Show"></button>
+                            <button type="button" (click)="showEditDialog(user)" icon="pi pi-info-circle" label="Show"></button>
                         
                             <a class="btn btn-danger" (click)="deleteUser()">
                                 <i class="fa-solid fa-trash"></i>
@@ -48,9 +48,9 @@
         </div> -->
 
         <p-dialog header="Title" [(visible)]="display">
-           Name <input type="text" pInputText />
-           Address <input type="text" pInputText />
-           Emails <input type="text" pInputText />
+           Name <input type="text" pInputText [(ngModel)] = "this.managementService.userToEdit.name" />
+           Address <input type="text" pInputText [(ngModel)] = "this.managementService.userToEdit.address"/>
+           Emails <input type="text" pInputText [(ngModel)] = "this.managementService.userToEdit.email"/>
 
            <div>
             <p-radioButton name="groupname" value="Male" [(ngModel)]="selectedValue" inputId="sv2">Male</p-radioButton>

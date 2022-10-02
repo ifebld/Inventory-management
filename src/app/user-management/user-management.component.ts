@@ -12,48 +12,36 @@ export class UserManagementComponent implements OnInit {
   display: boolean = false;
 
   selectedValue=""
-
+  user = {} 
   
   users : Array<any> = [];
   constructor(public managementService : ManagementService ) {
-    //this.users = this.managementService.users
-  }
-
-  // ngOnInit(): void {
-  //   (async () => {
-  //     this.users = await this.managementService.getUsers();
-  //     console.log(this.users);
-  //   }) ();
-  // }
-  
-  ngOnInit(): void {
-    
-  }
-
-  user:any = {}
- 
-
-    showDialog(user:any) {
-        this.display = true;
-        console.log(this.user)
-        this.managementService.userToEdit = {...this.user}
     }
 
-    submit(){}
+  ngOnInit(): void {
+    (async () => {
+      this.users = await this.managementService.getUsers();
+      console.log(this.users);
+    }) ();
+  }  
+ 
+    showEditDialog(user:any) {
+        this.display = true;
+        this.managementService.userToEdit = {...user}
+        console.log(user)
+    }
 
-  deleteUser(){
+    submit(){
+      (async () => {
+        try {
+          const response:any = await axios.put(`https://crudcrud.com/api/311fa0f0256144cfbd3af691869b9e50/users/${this.managementService.userToEdit._id}`, this.managementService.userToEdit);
+          console.log(response);
+          
+        }catch (error) {
+        console.error(error);
+        }
+      })()
+    }
 
-  }
-
+  deleteUser(){}
 }
-
-
-// editform : any = {};
-//     openEditDialogue(userDetails:any){
-//       console.log(this.userDetails)
-//       //this.editform = Object.assign(user);
-//       this.editformService.userToEdit = {...this.userDetails};
-//     }
-//     deleteUser(){
-//       this.deleteItem.emit(this.userDetails)
-//     }

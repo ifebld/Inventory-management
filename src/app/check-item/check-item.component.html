@@ -4,35 +4,37 @@
     <span>
         <label class="h4">Inventories</label><br><br>
         <div class="col-sm-3 ml-4">
-        <select class="form-select" name="picked" id="specificSizeSelect">
+        <select [(ngModel)]="selectedItem" class="form-select" (ngModelChange)="onChangeofOptions($event)">
             <option selected>Select Item...</option>
-            <option value="Abuja" name="White">Food and Beverages</option>
-            <option value="Moscow" name="brown">Pharmaceuticals</option>
-            <option value="London" name="red" >Costmetics</option>
-            <option value="Cape Town" name="yellow"> Hardware</option>
+
+            <option [value]="item._id" *ngFor = "let item of items">{{item.pname}}</option>
+            
             
         </select>
+        
         </div>
     </span><br>
     
     <span>
+        
         <label class="h4">Check In/Out</label><br><br>
         <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="fitem" id="inlineRadio1" value="Female"  >
+        <input class="form-check-input" type="radio" [(ngModel)]="checkIn" value="increase"  >
         <label class="form-check-label" for="inlineRadio1">Check-In</label>
+        
         </div>
         <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="utnesil" id="inlineRadio2" value="Male"  >
+        <input class="form-check-input" type="radio" [(ngModel)]="checkIn" value="decrease"  >
         <label class="form-check-label" for="inlineRadio2">Check-Out</label>
         </div>
     </span><br>
 
     <div class="mb-3 mt-3" >
         <label for="number" class="form-label h6">Product Quantiy:</label><br>
-        <input type="number" class="form-control" class="qty" name="pprice" id="price" name="Qty" ><br>
+        <input type="number" class="form-control" class="qty" name="pprice" id="price" [(ngModel)]="quantity" name="Qty" ><br>
       </div>
     
-    <button class="btn btn-primary"   type='button'>Submit</button>
+    <button class="btn btn-primary" (click)="submitCheckIn()"   type='button'>Submit</button>
     
 </div>
 
