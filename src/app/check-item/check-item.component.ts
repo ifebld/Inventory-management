@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagementService } from '../management.service';
+import axios from 'axios'
 
 @Component({
   selector: 'app-check-item',
@@ -52,12 +53,20 @@ export class CheckItemComponent implements OnInit {
         alert("Error!!!")
       }
     }
-    console.log(updatedQuantity)
-
-
     
 
+    (async () => {
+      try {
+        selectedProduct.quantity = updatedQuantity;
+        let itemToBeUpdated = {...selectedProduct}
+        delete itemToBeUpdated._id
+        const response:any = await axios.put(`https://crudcrud.com/api/c6cd3475f89647259fc9d17e9f3c9967/inventorys/${selectedProduct._id}`, itemToBeUpdated);
+        console.log(response);
+      }catch (error) {
+        console.error(error);
+      }
 
-  }
+  })()
 
+}
 }

@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateItemComponent } from '../create-item/create-item.component';
 import { ItemManagementComponent } from '../item-management/item-management.component';
-import { ViewItemComponent } from '../view-item/view-item.component';
-import { DeleteItemComponent } from '../delete-item/delete-item.component';
+
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {RadioButtonModule} from 'primeng/radiobutton'
@@ -13,14 +12,13 @@ import { TableModule } from 'primeng/table';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { CheckItemComponent } from '../check-item/check-item.component';
 import { FormsModule } from '@angular/forms';
+import {DialogModule} from 'primeng/dialog';
 
 
 @NgModule({
   declarations: [
     CreateItemComponent,
     ItemManagementComponent,
-    ViewItemComponent,
-    DeleteItemComponent,
     CheckItemComponent
   ],
   imports: [
@@ -38,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     ]),
     TableModule,
     InputNumberModule,
-    FormsModule
+    FormsModule,
+    DialogModule
   ]
 })
 export class InventoryModule { }

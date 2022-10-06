@@ -23,7 +23,7 @@ export class CreateItemComponent implements OnInit {
   submitInventory(){   
     (async () => {
        try {
-         const response = await axios.post('https://crudcrud.com/api/311fa0f0256144cfbd3af691869b9e50/inventorys',
+         const response = await axios.post('https://crudcrud.com/api/c6cd3475f89647259fc9d17e9f3c9967/inventorys',
          {
            name : this.name,
              pname : this.pname,

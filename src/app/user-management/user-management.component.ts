@@ -11,8 +11,10 @@ export class UserManagementComponent implements OnInit {
 
   display: boolean = false;
 
-  selectedValue=""
-  user = {} 
+  display1: boolean = false;
+
+  selectedValue="";
+  user = {} ;
   
   users : Array<any> = [];
   constructor(public managementService : ManagementService ) {
@@ -25,6 +27,12 @@ export class UserManagementComponent implements OnInit {
     }) ();
   }  
  
+  letUser(user:any){
+    this.display1 = true;
+    this.managementService.userToDelete = {...user};
+    console.log(user)
+  }
+
     showEditDialog(user:any) {
         this.display = true;
         this.managementService.userToEdit = {...user}
@@ -32,16 +40,31 @@ export class UserManagementComponent implements OnInit {
     }
 
     submit(){
+      this.display = false;
       (async () => {
+        let editPayload = {...this.managementService.userToEdit}
+        delete editPayload._id;
         try {
-          const response:any = await axios.put(`https://crudcrud.com/api/311fa0f0256144cfbd3af691869b9e50/users/${this.managementService.userToEdit._id}`, this.managementService.userToEdit);
-          console.log(response);
-          
+          const response:any = await axios.put(`https://crudcrud.com/api/c6cd3475f89647259fc9d17e9f3c9967/users/${this.managementService.userToEdit._id}`, editPayload);
+          console.log(response)
+          this.users = await this.managementService.getUsers();
         }catch (error) {
         console.error(error);
         }
       })()
     }
 
-  deleteUser(){}
+  deleteUser(){this.display1 = false;
+    (async () => {
+      try{
+        const response = await axios.delete(`https://crudcrud.com/api/c6cd3475f89647259fc9d17e9f3c9967/users/${this.managementService.userToDelete._id}`, this.managementService.userToDelete);
+        console.log(response)
+        this.users = await this.managementService.getUsers();
+      }catch(error){
+        console.error(error);
+      }
+    })()
+  }
+
+  
 }

@@ -9,15 +9,18 @@ export class ManagementService {
 
   constructor() { }
 
-  
+  loggedIn : boolean = false;
   users : Array<any> = [];
 
   inventorys: Array<any> = [];
   userToEdit : any = {};
+  quantityToUpdate: any = {};
+  userToDelete :any = {};
+  itemToEdit :any = {};
 
   getUsers =  async  () => {
     try {
-      const response = await axios.get('https://crudcrud.com/api/311fa0f0256144cfbd3af691869b9e50/users');
+      const response = await axios.get('https://crudcrud.com/api/c6cd3475f89647259fc9d17e9f3c9967/users');
       console.log(response);
       this.users = response.data;
       return response.data;
@@ -29,7 +32,7 @@ export class ManagementService {
 
   getInventorys =  async  () => {
     try {
-      const response = await axios.get('https://crudcrud.com/api/311fa0f0256144cfbd3af691869b9e50/inventorys');
+      const response = await axios.get('https://crudcrud.com/api/c6cd3475f89647259fc9d17e9f3c9967/inventorys');
       console.log(response);
       this.users = response.data;
       return response.data;

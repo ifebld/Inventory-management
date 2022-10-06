@@ -1,4 +1,3 @@
-<p>user-management works!</p>
 
 <div class="card1">
     <p-table [value]="users" responsiveLayout="scroll">
@@ -23,17 +22,16 @@
                 <td>{{user.address}}</td>
                 <td>{{user.type}}</td>
                 <td>
-                    <td>
-                        <div class="col-md-3">
-                            <button type="button" (click)="showEditDialog(user)" icon="pi pi-info-circle" label="Show"></button>
-                        
-                            <a class="btn btn-danger" (click)="deleteUser()">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
+                        <div class="col-md-5">
+                            <div>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="showEditDialog(user)">Edit</button>
+                            </div>
+                            <div>
+                            <button type="button" class="btn btn-danger btn-sm" (click)="letUser(user)">Delete </button>
+                            </div>
                         </div>
-                    </td>
-               
             </tr>
+            
         </ng-template>
     </p-table>
 </div>
@@ -68,5 +66,15 @@
           <button type="button" pButton label="Submit" class="submit" (click)="submit()"></button>
             
         </p-dialog>
+
+        <p-dialog [(visible)]="display1">
+            Are you sure you want to Delete?
+            <br>
+            <button type="button" class="btn btn-danger btn-sm" (click)="deleteUser()">Delete </button>
+        </p-dialog>
+        
+        
+
+      
         
         

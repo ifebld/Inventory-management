@@ -1,4 +1,3 @@
-<p>item-management works!</p>
 
 <div class="card">
     <p-table [value]="inventorys" responsiveLayout="scroll">
@@ -7,24 +6,35 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                
+                <th>ProductName</th>
                 <th>Name(Delivered By)</th>
                 <th>Address</th>
-                <th>ProductName</th>
                 <th>Category</th>
                 <th>Quantity</th>
+                <th>Action</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-inventory>
             <tr>
-                
+                <td>{{inventory.pname}}</td>
                 <td>{{inventory.name}}</td>
                 <td>{{inventory.address}}</td>
-                <td>{{inventory.pname}}</td>
                 <td>{{inventory.value}}</td>
                 <td>{{inventory.quantity}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="showEditDialog(inventory)">Edit</button>
+                </td>
                 
             </tr>
         </ng-template>
     </p-table>
 </div>
+
+<p-dialog header="Title" [(visible)]="display">
+    Name <input type="text" pInputText [(ngModel)] = "this.managementService.itemToEdit.pname" />
+   
+   <br>
+
+   <button type="button" pButton label="Submit" class="submit" (click)="submit()"></button>
+     
+ </p-dialog>
